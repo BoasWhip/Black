@@ -1,0 +1,69 @@
+Category,Description,Point Value,Unit,Currency,Exchange,Sub-Exchange
+Agricultural Commodities,Azuki Red Beans,2400,KG,JPY,,TGE
+Agricultural Commodities,Coffee,37500,Lbs,USc,,CSCE
+Agricultural Commodities,Corn,5000,Bsh,USc,,CBOT
+Agricultural Commodities,Cotton,50000,Lbs,USc,,NYCE
+Agricultural Commodities,Lean Hogs,40000,Lbs,USc,,CME
+Agricultural Commodities,Live Cattle,40000,Lbs,USc,,CME
+Agricultural Commodities,Lumber,110000,Feet,USD,,CME
+Agricultural Commodities,Oats,5000,Bsh,USc,,CBT
+Agricultural Commodities,Orange Juice,15000,Lbs,USc,,NYCE
+Agricultural Commodities,Canola,20,Tons,CAD,,WCE
+Agricultural Commodities,Rough Rice,2000,Cwt,USc,,CBOT
+Agricultural Commodities,Rubber,10000,KG,JPY,,TOCOM
+Agricultural Commodities,Soybean Meal,100,Tons,USD,,CBOT
+Agricultural Commodities,Soybeans,5000,Bsh,USc,,CBOT
+Agricultural Commodities,Sugar,112000,Lbs,USc,,CSCE
+Agricultural Commodities,Wheat,5000,Bsh,USc,,CBOT
+Non-Agricultural Commodities,Gas Oil,100,Tonne,USD,,NYMEX
+Non-Agricultural Commodities,Crude Oil,1000,Barrels,USD,,NYMEX
+Non-Agricultural Commodities,Heating Oil,42000,Gallons,USD,,NYMEX
+Non-Agricultural Commodities,Natural Gas,10000,mmBTU,USD,,NYMEX
+Non-Agricultural Commodities,Gasoline,42000,Gallons,USD,,NYMEX
+Non-Agricultural Commodities,Gold,100,Troy Ounces,USD,,CMX
+Non-Agricultural Commodities,Copper,25000,Pounds,USc,,CMX
+Non-Agricultural Commodities,Palladium,100,Troy Ounces,USD,,NYMEX
+Non-Agricultural Commodities,Platinum,50,Troy Ounces,USD,,NYMEX
+Non-Agricultural Commodities,Silver,5000,Troy Ounces,USc,,CMX
+Currencies,AUD/USD,100000,AUD,USD,,CME
+Currencies,GBP/USD,62500,GBP,USD,,CME
+Currencies,EUR/USD,125000,EUR,USD,,CME
+Currencies,CAD/USD,100000,CAD,USD,,CME
+Currencies,JPY/USD,1250,Million JPY,USc,,CME
+Currencies,NZD/USD,100000,NZD,USD,,CME
+Currencies,NOK/USD,200000,NOK,USD,,CME
+Currencies,ZAR/USD,500000,RND,USD,,CME
+Currencies,SEK/USD,200000,SEK,USD,,CME
+Currencies,CHF/USD,125000,EUR,CHF,,CME
+Currencies,EUR/CHF,125000,EUR,GBP,,CME
+Currencies,EUR/GBP,125000,EUR,JPY,,CME
+Currencies,EUR/JPY,125000,CHF,USD,,CME
+Equities,CAC 40,10,Index Points,EUR,,Euronext
+Equities,DAX,25,Index Points,EUR,,EUREX
+Equities,EuroStoxx,10,Index Points,EUR,,Euronext
+Equities,FTSE 100,10,Index Points,GBP,,Euronext
+Equities,Hang Seng,50,Index Points,HKD,,HKEX
+Equities,Hang Seng China Enterprises,50,Index Points,HKD,,HKEX
+Equities,IBEX 35,10,Index Points,EUR,,MEFF
+Equities,MSCI Taiwan,100,Index Points,USD,,SGX
+Equities,Nasdaq 100,100,Index Points,USD,,CME
+Equities,Nikkei 225,5,Index Points,USD,,CME
+Equities,S&P 500,250,Index Points,USD,,CME
+Equities,S&P 60,200,Index Points,CAD,,ME
+Equities,SPI 200,25,Index Points,USD,,SFE
+Rates,AU 3Y,1000,Bond Price,AUD,,ASX
+Rates,AU 10Y,1000,Bond Price,AUD,,ASX
+Rates,AU 90 Day,2500,Price,AUD,,ASX
+Rates,Bund,1000,Bond Price,EUR,,Euronext
+Rates,Schatz,1000,Bond Price,EUR,,Euronext
+Rates,Bobl,1000,Bond Price,EUR,,Euronext
+Rates,CD 90 Day,2500,Price,CAD,,ME
+Rates,CD 10Y,1000,Bond Price,CAD,,ME
+Rates,Euribor,2500,1 Million EUR,EUR,,Euronext
+Rates,Euroswiss,2500,1 Million CHF,CHF,,Euronext
+Rates,JP 10Y,1000,Bond Price,JPY,,TSE
+Rates,Long Gilt,1000,Bond Price,GBP,,Euronext
+Rates,Short Sterling,1250,"500,000 GBP",GBP,,Euronext
+Rates,US 2Y,2000,Bond Price,USD,,CME
+Rates,US 5Y,1000,Bond Price,USD,,CME
+Rates,US 10Y,1000,Bond Price,USD,,CME
