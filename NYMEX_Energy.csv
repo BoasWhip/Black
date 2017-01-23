@@ -1,0 +1,15 @@
+Category,Product,Code,Code,OPEN_INT
+Crude Oil,Crude Oil Futures,CLH7,CLA,646213
+Crude Oil,E-mini Crude Oil Futures,QMH7,ECA,2409
+Ethanol,Ethanol Futures,EHH7,DLA,2257
+Natural Gas,Henry Hub Natural Gas Futures,NGH7,NGA,55152
+Natural Gas,E-mini Natural Gas Futures,QGH7,EOA,1219
+Refined Products,NY Harbor ULSD Futures (Heating Oil),HOH7,HOA,43580
+Refined Products,E-mini NY Harbor ULSD Futures,QHH7,QXA,0
+Refined Products,RBOB Gasoline Futures,RBH7,XBA,47678
+Refined Products,E-mini RBOB Gasoline Futures,QUH7,QUA,2
+Refined Products,European Low Sulphur Gasoil (100mt) Bullet Futures,GLIH7,QSA,149052
+Coal,Coking Coal Futures,,CKCA,115156
+Emissions,In Delivery Month European Union Allowance (EUA) Futures,EAFH7,EAFA,0
+Emissions,Certified Emission Reduction Plus (CERplus) Futures,CPLH7,CPLA,0
+Emissions,Daily European Union Allowance (EUA) Futures,EULH7,EULA,0
