@@ -1,0 +1,131 @@
+Relational Databases and SQLite
+
+Relational databases model data by storing rows and columns in tables. The power of the relational database lies in its ability to efficiently retrieve data from those tables and in particular where there are multiple tables and the relationships between those tables involved in the query.
+
+
+Terminology
+–	Database – contains many tables
+–	Relation (or table) – contains tuples and attributes
+–	Tuple (or row) – a set of fields that generally represents an “object” like a person or a music track
+–	Attribute (also column or field) – one of possibly many elements of data corresponding to the object represented by the row
+A relation is defined as a set of tuples that have the same attributes. A tuple usually represents an object and information about that object. Objects are typically physical objects or concepts. A relation is usually described as a table, which is organized into rows and columns. All the data referenced by an attribute are in the same domain and conform to the same constraints.
+
+SQL
+Structured Query Language is the language we use to issue commands to the database: create a table, retrieve some data, insert data, delete data.
+
+SQLite
+SQLite is a C library that provides a lightweight disk-based database that does not require a separate server process. It allows access to a database using a non-standard variant of SQL. It is free, fast, and small, embedded into Python and a number of other languages.
+Hence, SQLite is used in some applications for internal data storage and it is also used for application prototyping (before being ported to larger databases such as PostgreSQL and Oracle). Hence, SQLite is a very popular database for these reason and t. 
+The SQLite Browser allows us to directly manipulate SQLite files: http://sqlitebrowser.org/
+ 
+Database Model
+A database model or database schema is the structure or format of a database, described in a formal language supported by the database management system. A database model is the application of a data model when used in conjunction with a database management system.
+
+Designing and Building a Data Model
+Database design is an art form of its own with particular skills and experience. Our goal is to avoid the really bad mistakes and design clean and easily understood databases (and perhaps others may performance tune things later). Database design starts with a picture of the data objects for the application and then figuring out how to represent the objects and their relationships:
+–	basic rule: do NOT insert the same string data twice, use a relationship instead;
+–	when there is one thing in the “real world” there should be one copy of that thing in the database;
+–	for each 'piece' of information determine whether it is an attribute of an object or an attribute of another object;
+–	once we have defined the objects, define the relationships between them.
+ 
+Representing Relationships in a Database
+
+Database Normalization (3NF)
+–	do not replicate data – reference data – point at data;
+–	use integers for keys and for references;
+–	add a special “key” column to each table for referencing to, by convention labelled 'ID'.
+
+Three Kinds of Keys
+–	Primary key – generally an integer auto-increment field
+–	Logical key – what the outside world uses for look-up
+–	Foreign key – generally an integer key pointing to a row in another table – the primary key of another table; for all primary keys and thus foreign keys to be integers is very desirable result of the database design (see Relational Power). 
+
+Primary Key Rules and best practices
+–	Never use your logical key as the primary key
+–	Logical keys can and do change, albeit slowly
+–	Relationships that are based on matching string fields are less efficient than integers
+
+Relational Power
+By removing the replicated data and replacing it with references to a single copy of each piece of data we build a 'web' of information that the relational database can read through very quickly – even for very large amounts of data. Often when you want some data it comes from a number of tables linked by these foreign keys.
+
+The JOIN Operation
+The JOIN operation links across several tables as part of a SELECT operation. We must specify in the JOIN statement how the keys should be used in connecting tables using an ON clause; e.g.:
+SELECT Album.title, Artist.name
+FROM Album
+JOIN Artist ON Album.artist_id = Artist.id
+Joining two tables without an ON clause gives all possible combinations of rows.
+ 
+Many-To-Many Relationships
+–	Sometimes we need to model a relationship that is many-to-many
+–	We need to add a "connection" table with two foreign keys
+–	There is usually no separate primary key
+
+Complexity Enables Speed
+–	Complexity makes speed possible and allows you to get very fast results as the data size grows
+–	By normalizing the data and linking it with integer keys, the overall amount of data which the relational database must scan is far lower than if the data were simply flattened out
+–	It might seem like a trade-off – spend some time designing your database so it continues to be fast when your application is a success
+
+Additional SQL Topics
+–	Indexes improve access performance for things like string fields
+–	Constraints on data - (cannot be NULL, etc..)
+–	Transactions - allow SQL operations to be grouped and done as a unit
+
+Summary
+–	Relational databases allow us to scale to very large amounts of data
+–	The key is to have one copy of any data element and use relations and joins to link the data to multiple places
+–	This greatly reduces the amount of data which much be scanned when doing complex operations across large amounts of data
+–	Database and SQL design is a bit of an art form
+
+ 
+SQLite databases
+
+SQLite is a C library that provides a lightweight disk-based database that does not require a separate server process and allows accessing the database using a non-standard variant of the SQL query language. Some applications can use SQLite for internal data storage. It is also possible to prototype an application using SQLite and then port the code to a larger database such as PostgreSQL or Oracle.
+The sqlite3 module was written by Gerhard Häring. It provides a SQL interface compliant with the DB-API 2.0 specification described by PEP 249.
+To use the module, you must first create a Connection object that represents the database. Here the data will be stored in the example.db file:
+import sqlite3
+conn = sqlite3.connect('example.db')
+You can also supply the special name :memory: to create a database in RAM.
+DB-API 2.0 interface for SQLite databases
+Once you have a Connection, you can create a Cursor object and call its execute() method to perform SQL commands:
+c = conn.cursor()
+# Create table
+c.execute('''CREATE TABLE stocks(date text, trans text, symbol text, qty real, price real)''')
+# Insert a row of data
+c.execute("INSERT INTO stocks VALUES ('2006-01-05','BUY','RHAT',100,35.14)")
+# Save (commit) the changes
+conn.commit()
+# We can also close the connection if we are done with it.
+# Just be sure any changes have been committed or they will be lost.
+conn.close()
+
+Resources
+SQLite Browser: http://sqlitebrowser.org/
+Download and install FireFox and the SQLite Manager
+http://www.mozilla.org/en­US/firefox/new/
+https://addons.mozilla.org/en­US/firefox/addon/sqlite­manager/
+ 
+Create Table Statements:
+CREATE TABLE "Users" ("name" TEXT, "email" TEXT)
+CREATE TABLE "Artist" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL UNIQUE, "name" TEXT)
+CREATE TABLE "Album" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL UNIQUE, artist_id INTEGER,"title" TEXT)
+CREATE TABLE "Genre" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL UNIQUE, "name" TEXT)
+CREATE TABLE "Track" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL UNIQUE, album_id INTEGER, genre_id INTEGER, len INTEGER, rating INTEGER, "title" TEXT, "count" INTEGER)
+Queries
+INSERT INTO Users (name, email) VALUES ('Ted', 'ted@umich.edu')
+DELETE FROM Users WHERE email='ted@umich.edu'
+UPDATE Users SET name="Charles" WHERE email='csev@umich.edu'
+SELECT * FROM Users
+SELECT * FROM Users WHERE email='csev@umich.edu'
+SELECT * FROM Users ORDER BY email
+INSERT INTO Artist (name) VALUES ('Led Zepplin')
+INSERT INTO Artist (name) VALUES ('AC/DC')
+INSERT INTO Genre (name) VALUES ('Rock')
+INSERT INTO Genre (name) VALUES ('Metal')
+INSERT INTO Album (title, artist_id) VALUES ('Who Made Who', 2)
+INSERT INTO Album (title, artist_id) VALUES ('IV', 1)
+INSERT INTO Track (title, rating, len, count, album_id, genre_id) VALUES ('Black Dog', 5, 297, 0, 2, 1)
+INSERT INTO Track (title, rating, len, count, album_id, genre_id) VALUES ('Stairway', 5, 482, 0, 2, 1)
+INSERT INTO Track (title, rating, len, count, album_id, genre_id) VALUES ('About to Rock', 5, 313, 0, 1, 2)
+INSERT INTO Track (title, rating, len, count, album_id, genre_id) VALUES ('Who Made Who', 5, 207, 0, 1, 2)
+SELECT Track.title, Genre.name FROM Track JOIN Genre on Track.genre_id = Genre.id
+SELECT Track.title, Artist.name, Album.title, Genre.name FROM Track JOIN Genre JOIN Album JOIN Artist on Track.genre_id = Genre.id and Track.album_id = Album.id and Album.artist_id = Artist.id
