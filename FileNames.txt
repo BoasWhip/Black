@@ -1,0 +1,12 @@
+Introduction to Computation - Time 33:07
+Core Elements of Programs - Time 47:06
+Simple Algorithms - Time 56:38
+Functions - Time 56:51
+Recursion - Time 55:06
+Objects - Time 46:20
+Debugging - Time 48:59
+Assertions and Exceptions - Time 00:00
+Efficiency and Orders of Growth - Time 41:14
+Memory and Search - Time 54:24
+Classes - Time 49:15
+Object Oriented Programming - Time 55:33
